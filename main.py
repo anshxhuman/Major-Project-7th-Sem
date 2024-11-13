@@ -67,25 +67,25 @@ model.compile(optimizer = 'adam', loss='categorical_crossentropy', metrics=['acc
 print(model.summary())
 
 
-# train_path = "train/"
-# test_path = "test"
+train_path = "train/"
+test_path = "test"
 
-# num_train_imgs = 0
-# for root, dirs, files in os.walk(train_path):
-#     num_train_imgs += len(files)
+num_train_imgs = 0
+for root, dirs, files in os.walk(train_path):
+    num_train_imgs += len(files)
     
-# num_test_imgs = 0
-# for root, dirs, files in os.walk(test_path):
-#     num_test_imgs += len(files)
+num_test_imgs = 0
+for root, dirs, files in os.walk(test_path):
+    num_test_imgs += len(files)
 
-# print(num_train_imgs)
-# print(num_test_imgs)
-# epochs=30
+print(num_train_imgs)
+print(num_test_imgs)
+epochs=30
 
-# history=model.fit(train_generator,
-#                 steps_per_epoch=num_train_imgs//32,
-#                 epochs=epochs,
-#                 validation_data=validation_generator,
-#                 validation_steps=num_test_imgs//32)
+history=model.fit(train_generator,
+                steps_per_epoch=num_train_imgs//32,
+                epochs=epochs,
+                validation_data=validation_generator,
+                validation_steps=num_test_imgs//32)
 
-# model.save('model_file.h5')
+model.save('model_file.h5')
